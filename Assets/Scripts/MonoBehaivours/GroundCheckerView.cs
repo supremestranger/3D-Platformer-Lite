@@ -26,9 +26,9 @@ namespace Platformer
         {
             if (other.gameObject.CompareTag("Ground"))
             {
-                if (!groundedPool.Has(playerEntity))
+                if (groundedPool.Has(playerEntity))
                 {
-                    groundedPool.Add(playerEntity);
+                    groundedPool.Del(playerEntity);
                 }
             }
         }
