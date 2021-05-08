@@ -10,11 +10,11 @@ namespace Platformer
         public void Init(EcsSystems ecsSystems)
         {
             var ecsWorld = ecsSystems.GetWorld();
+            var dangerousPool = ecsWorld.GetPool<DangerousComponent>();
             foreach (var i in GameObject.FindGameObjectsWithTag("Dangerous"))
             {
                 var dangerousEntity = ecsWorld.NewEntity();
 
-                var dangerousPool = ecsWorld.GetPool<DangerousComponent>();
                 dangerousPool.Add(dangerousEntity);
                 ref var dangerousComponent = ref dangerousPool.Get(dangerousEntity);
 
