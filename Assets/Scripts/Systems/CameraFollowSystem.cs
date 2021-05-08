@@ -11,10 +11,9 @@ namespace Platformer
 
         public void Init(EcsSystems ecsSystems)
         {
-            var ecsWorld = ecsSystems.GetWorld();
             var gameData = ecsSystems.GetShared<GameData>();
 
-            var cameraEntity = ecsWorld.NewEntity();
+            var cameraEntity = ecsSystems.GetWorld().NewEntity();
 
             var cameraPool = ecsWorld.GetPool<CameraComponent>();
             cameraPool.Add(cameraEntity);
