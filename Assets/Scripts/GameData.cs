@@ -13,5 +13,6 @@ namespace Platformer
         public Text coinCounter;
         public GameObject playerWonPanel;
         public GameObject gameOverPanel;
+        public SceneService sceneService;
     }
 }

@@ -7,11 +7,11 @@ namespace Platformer
 {
     public class JumpBuffSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSysetms)
+        public void Run(EcsSystems ecsSystems)
         {
-            var filter = ecsSysetms.GetWorld().Filter<JumpBuffComponent>().Inc<PlayerComponent>().End();
-            var jumpBuffPool = ecsSysetms.GetWorld().GetPool<JumpBuffComponent>();
-            var playerPool = ecsSysetms.GetWorld().GetPool<PlayerComponent>();
+            var filter = ecsSystems.GetWorld().Filter<JumpBuffComponent>().Inc<PlayerComponent>().End();
+            var jumpBuffPool = ecsSystems.GetWorld().GetPool<JumpBuffComponent>();
+            var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
 
             foreach (var i in filter)
             {

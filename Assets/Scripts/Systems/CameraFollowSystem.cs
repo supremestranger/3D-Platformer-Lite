@@ -15,7 +15,7 @@ namespace Platformer
 
             var cameraEntity = ecsSystems.GetWorld().NewEntity();
 
-            var cameraPool = ecsWorld.GetPool<CameraComponent>();
+            var cameraPool = ecsSystems.GetWorld().GetPool<CameraComponent>();
             cameraPool.Add(cameraEntity);
             ref var cameraComponent = ref cameraPool.Get(cameraEntity);
 

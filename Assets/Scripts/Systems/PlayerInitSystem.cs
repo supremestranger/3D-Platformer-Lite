@@ -9,7 +9,7 @@ namespace Platformer
     {
         public void Init(EcsSystems ecsSystems)
         {
-            EcsWorld ecsWorld = ecsSystems.GetWorld();
+            var ecsWorld = ecsSystems.GetWorld();
             var gameData = ecsSystems.GetShared<GameData>();
 
             var playerEntity = ecsWorld.NewEntity();

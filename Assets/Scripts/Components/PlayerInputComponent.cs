@@ -5,5 +5,4 @@ using UnityEngine;
 public struct PlayerInputComponent
 {
     public Vector3 moveInput;
-    public bool jumpInput;
 }

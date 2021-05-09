@@ -24,6 +24,11 @@ namespace Platformer
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag(Constants.Tags.CoinTag) || other.CompareTag(Constants.Tags.BadCoinTag))
+            {
+                // instantly destroy coin to avoid multiple OnTriggerEnter() calls.
+                other.gameObject.SetActive(false); 
+            }
             var hit = ecsWorld.NewEntity();
 
             var hitPool = ecsWorld.GetPool<HitComponent>();

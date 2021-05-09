@@ -1,12 +1,11 @@
-﻿using Leopotam.EcsLite;
-using System;
+using Leopotam.EcsLite;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer
 {
-    public class HitSystem : IEcsRunSystem
+    public class CoinHitSystem : IEcsRunSystem
     {
         public void Run(EcsSystems ecsSystems)
         {
@@ -20,18 +19,23 @@ namespace Platformer
             {
                 ref var hitComponent = ref hitPool.Get(i);
 
-                foreach(var j in playerFilter)
+                foreach (var j in playerFilter)
                 {
                     ref var playerComponent = ref playerPool.Get(j);
 
-                    if (hitComponent.other.CompareTag("WinPoint"))
+                    if (hitComponent.other.CompareTag(Constants.Tags.CoinTag))
                     {
-                        playerComponent.playerTransform.gameObject.SetActive(false);
-                        ecsSystems.GetWorld().DelEntity(j);
-                        gameData.playerWonPanel.SetActive(true);
+                        playerComponent.coins += 1;
+                        gameData.coinCounter.text = playerComponent.coins.ToString();
+                    }
+
+                    if (hitComponent.other.CompareTag(Constants.Tags.BadCoinTag))
+                    {
+                        playerComponent.coins -= 1;
+                        gameData.coinCounter.text = playerComponent.coins.ToString();
                     }
                 }
-                
+
             }
         }
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Configuration
   m_EditorClassIdentifier: 
   playerJumpForce: 12
-  playerSpeed: 20
+  playerSpeed: 24
   cameraFollowSmoothness: 0.1
   speedBuffDuration: 5
   jumpBuffDuration: 5

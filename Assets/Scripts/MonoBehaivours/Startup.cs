@@ -1,4 +1,5 @@
 ﻿using Leopotam.EcsLite;
+using LeopotamGroup.Globals;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace Platformer
             gameData.coinCounter = coinCounter;
             gameData.gameOverPanel = gameOverPanel;
             gameData.playerWonPanel = playerWonPanel;
+            gameData.sceneService = Service<SceneService>.Get(true);
 
             initSystems = new EcsSystems(ecsWorld, gameData)
                 .Add(new PlayerInitSystem())
@@ -36,7 +38,10 @@ namespace Platformer
             updateSystems = new EcsSystems(ecsWorld, gameData)
                 .Add(new PlayerInputSystem())
                 .Add(new DangerousRunSystem())
-                .Add(new HitSystem())
+                .Add(new CoinHitSystem())
+                .Add(new BuffHitSystem())
+                .Add(new DangerousHitSystem())
+                .Add(new WinHitSystem())
                 .Add(new SpeedBuffSystem())
                 .Add(new JumpBuffSystem())
                 .DelHere<HitComponent>();

@@ -10,18 +10,17 @@ namespace Platformer
     {
         public void Run(EcsSystems ecsSystems)
         {
-            var filter = ecsSystems.GetWorld().Filter<PlayerComponent>().Inc<PlayerInputComponent>().Inc<GroundedComponent>().End();
+            var playerGroundedFilter = ecsSystems.GetWorld().Filter<PlayerComponent>().Inc<PlayerInputComponent>().Inc<GroundedComponent>().End();
+            var tryJumpFilter = ecsSystems.GetWorld().Filter<TryJump>().End();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
-            var playerInputPool = ecsSystems.GetWorld().GetPool<PlayerInputComponent>();
 
-            foreach (var i in filter)
+            foreach (var i in tryJumpFilter)
             {
-                ref var playerComponent = ref playerPool.Get(i);
-                ref var playerInputComponent = ref playerInputPool.Get(i);
-
-                if (playerInputComponent.jumpInput)
+                ecsSystems.GetWorld().DelEntity(i);
+                foreach (var j in playerGroundedFilter)
                 {
-                    playerInputComponent.jumpInput = false;
+                    ref var playerComponent = ref playerPool.Get(j);
+
                     playerComponent.playerRB.AddForce(Vector3.up * playerComponent.playerJumpForce, ForceMode.VelocityChange);
                 }
             }

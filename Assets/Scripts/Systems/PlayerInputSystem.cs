@@ -13,6 +13,8 @@ namespace Platformer
         {
             var filter = ecsSystems.GetWorld().Filter<PlayerInputComponent>().End();
             var playerInputPool = ecsSystems.GetWorld().GetPool<PlayerInputComponent>();
+            var tryJumpPool = ecsSystems.GetWorld().GetPool<TryJump>();
+            var gameData = ecsSystems.GetShared<GameData>();
 
             foreach (var i in filter)
             {
@@ -22,12 +24,13 @@ namespace Platformer
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    playerInputComponent.jumpInput = true;
+                    var tryJump = ecsSystems.GetWorld().NewEntity();
+                    tryJumpPool.Add(tryJump);
                 }
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    gameData.sceneService.ReloadScene();
                 }
             }
         }
