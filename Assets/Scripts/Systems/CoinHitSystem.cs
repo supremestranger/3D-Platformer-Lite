@@ -15,13 +15,13 @@ namespace Platformer
             var playerFilter = ecsSystems.GetWorld().Filter<PlayerComponent>().End();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
 
-            foreach (var i in hitFilter)
+            foreach (var hitEntity in hitFilter)
             {
-                ref var hitComponent = ref hitPool.Get(i);
+                ref var hitComponent = ref hitPool.Get(hitEntity);
 
-                foreach (var j in playerFilter)
+                foreach (var playerEntity in playerFilter)
                 {
-                    ref var playerComponent = ref playerPool.Get(j);
+                    ref var playerComponent = ref playerPool.Get(playerEntity);
 
                     if (hitComponent.other.CompareTag(Constants.Tags.CoinTag))
                     {

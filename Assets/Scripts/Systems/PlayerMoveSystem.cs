@@ -13,10 +13,10 @@ namespace Platformer
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
             var playerInputPool = ecsSystems.GetWorld().GetPool<PlayerInputComponent>();
 
-            foreach (var i in filter)
+            foreach (var entity in filter)
             {
-                ref var playerComponent = ref playerPool.Get(i);
-                ref var playerInputComponent = ref playerInputPool.Get(i);
+                ref var playerComponent = ref playerPool.Get(entity);
+                ref var playerInputComponent = ref playerInputPool.Get(entity);
 
                 playerComponent.playerRB.AddForce(playerInputComponent.moveInput * playerComponent.playerSpeed, ForceMode.Acceleration);
             }

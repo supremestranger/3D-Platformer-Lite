@@ -17,20 +17,20 @@ namespace Platformer
             var jumpPool = ecsSystems.GetWorld().GetPool<JumpBuffComponent>();
             var speedPool = ecsSystems.GetWorld().GetPool<SpeedBuffComponent>();
 
-            foreach (var i in hitFilter)
+            foreach (var hitEntity in hitFilter)
             {
-                ref var hitComponent = ref hitPool.Get(i);
+                ref var hitComponent = ref hitPool.Get(hitEntity);
 
-                foreach (var j in playerFilter)
+                foreach (var playerEntity in playerFilter)
                 {
-                    ref var playerComponent = ref playerPool.Get(j);
+                    ref var playerComponent = ref playerPool.Get(playerEntity);
 
                     if (hitComponent.other.CompareTag(Constants.Tags.SpeedBuffTag))
                     {
                         hitComponent.other.gameObject.SetActive(false);
                         playerComponent.playerSpeed *= 2f;
-                        speedPool.Add(j);
-                        ref var speedBuffComponent = ref speedPool.Get(j);
+                        speedPool.Add(playerEntity);
+                        ref var speedBuffComponent = ref speedPool.Get(playerEntity);
                         speedBuffComponent.timer = gameData.configuration.speedBuffDuration;
                     }
 
@@ -38,8 +38,8 @@ namespace Platformer
                     {
                         hitComponent.other.gameObject.SetActive(false);
                         playerComponent.playerJumpForce *= 2f;
-                        jumpPool.Add(j);
-                        ref var jumpBuffComponent = ref jumpPool.Get(j);
+                        jumpPool.Add(playerEntity);
+                        ref var jumpBuffComponent = ref jumpPool.Get(playerEntity);
                         jumpBuffComponent.timer = gameData.configuration.jumpBuffDuration;
                     }
                 }

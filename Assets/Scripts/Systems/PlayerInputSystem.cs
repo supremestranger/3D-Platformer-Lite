@@ -16,9 +16,9 @@ namespace Platformer
             var tryJumpPool = ecsSystems.GetWorld().GetPool<TryJump>();
             var gameData = ecsSystems.GetShared<GameData>();
 
-            foreach (var i in filter)
+            foreach (var entity in filter)
             {
-                ref var playerInputComponent = ref playerInputPool.Get(i);
+                ref var playerInputComponent = ref playerInputPool.Get(entity);
 
                 playerInputComponent.moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
 

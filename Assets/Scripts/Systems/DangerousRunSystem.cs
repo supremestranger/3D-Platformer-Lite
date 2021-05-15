@@ -12,9 +12,9 @@ namespace Platformer
             var filter = ecsSystems.GetWorld().Filter<DangerousComponent>().End();
             var dangerousPool = ecsSystems.GetWorld().GetPool<DangerousComponent>();
 
-            foreach (var i in filter)
+            foreach (var entity in filter)
             {
-                ref var dangerousComponent = ref dangerousPool.Get(i);
+                ref var dangerousComponent = ref dangerousPool.Get(entity);
                 Vector3 pos1 = dangerousComponent.pointA;
                 Vector3 pos2 = dangerousComponent.pointB;
 

@@ -14,12 +14,12 @@ namespace Platformer
             var tryJumpFilter = ecsSystems.GetWorld().Filter<TryJump>().End();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
 
-            foreach (var i in tryJumpFilter)
+            foreach (var tryJumpEntity in tryJumpFilter)
             {
-                ecsSystems.GetWorld().DelEntity(i);
-                foreach (var j in playerGroundedFilter)
+                ecsSystems.GetWorld().DelEntity(tryJumpEntity);
+                foreach (var playerEntity in playerGroundedFilter)
                 {
-                    ref var playerComponent = ref playerPool.Get(j);
+                    ref var playerComponent = ref playerPool.Get(playerEntity);
 
                     playerComponent.playerRB.AddForce(Vector3.up * playerComponent.playerJumpForce, ForceMode.VelocityChange);
                 }

@@ -13,17 +13,17 @@ namespace Platformer
             var jumpBuffPool = ecsSystems.GetWorld().GetPool<JumpBuffComponent>();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();
 
-            foreach (var i in filter)
+            foreach (var entity in filter)
             {
-                ref var jumpBuffComponent = ref jumpBuffPool.Get(i);
-                ref var playerComponent = ref playerPool.Get(i);
+                ref var jumpBuffComponent = ref jumpBuffPool.Get(entity);
+                ref var playerComponent = ref playerPool.Get(entity);
 
                 jumpBuffComponent.timer -= Time.deltaTime;
 
                 if (jumpBuffComponent.timer <= 0)
                 {
                     playerComponent.playerJumpForce /= 2f;
-                    jumpBuffPool.Del(i);
+                    jumpBuffPool.Del(entity);
                 }
             }
         }

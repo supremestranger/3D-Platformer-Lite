@@ -35,9 +35,9 @@ namespace Platformer
 
             ref var cameraComponent = ref cameraPool.Get(cameraEntity);
 
-            foreach(var i in filter)
+            foreach(var entity in filter)
             {
-                ref var playerComponent = ref playerPool.Get(i);
+                ref var playerComponent = ref playerPool.Get(entity);
 
                 Vector3 currentPosition = cameraComponent.cameraTransform.position;
                 Vector3 targetPoint = playerComponent.playerTransform.position + cameraComponent.offset;
