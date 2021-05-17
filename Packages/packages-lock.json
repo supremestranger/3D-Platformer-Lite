@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.leopotam.ecslite": {
-      "version": "https://github.com/Leopotam/ecslite.git",
+      "version": "https://github.com/Leopotam/ecslite.git#develop",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "16ba0a80cc4de3b9c184d29d4ab82a06c51354f2"
+      "hash": "5fa7d7a94d912ac7c16f2500eefc12adc926f9b8"
     },
     "com.leopotam.globals": {
       "version": "https://github.com/Leopotam/globals.git",
