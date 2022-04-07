@@ -2,6 +2,7 @@
 using LeopotamGroup.Globals;
 using System.Collections;
 using System.Collections.Generic;
+using Leopotam.EcsLite.ExtendedSystems;
 using UnityEngine;
 using UnityEngine.UI;
 

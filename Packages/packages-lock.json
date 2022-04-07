@@ -5,14 +5,21 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "5fa7d7a94d912ac7c16f2500eefc12adc926f9b8"
+      "hash": "4b487e5a35cd27b055b4a5d9ac874a64ad90c186"
+    },
+    "com.leopotam.ecslite.extendedsystems": {
+      "version": "https://github.com/Leopotam/ecslite-extendedsystems.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "645d4f27b12020630d4f1e252cb27deec04d2659"
     },
     "com.leopotam.globals": {
       "version": "https://github.com/Leopotam/globals.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "740d6ddbd9ed39947f2153c63bc2654d04e5b8c8"
+      "hash": "bd471093eb39824b4ec75e82c680b1d33999ec4c"
     },
     "com.unity.collab-proxy": {
       "version": "1.3.9",
