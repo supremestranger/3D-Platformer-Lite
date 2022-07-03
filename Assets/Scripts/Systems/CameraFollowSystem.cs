@@ -9,7 +9,7 @@ namespace Platformer
     {
         private int cameraEntity;
 
-        public void Init(EcsSystems ecsSystems)
+        public void Init(IEcsSystems ecsSystems)
         {
             var gameData = ecsSystems.GetShared<GameData>();
 
@@ -27,7 +27,7 @@ namespace Platformer
             this.cameraEntity = cameraEntity;
         }
 
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var filter = ecsSystems.GetWorld().Filter<PlayerComponent>().End();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();

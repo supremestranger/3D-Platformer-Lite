@@ -7,7 +7,7 @@ namespace Platformer
 {
     public class DangerousRunSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var filter = ecsSystems.GetWorld().Filter<DangerousComponent>().End();
             var dangerousPool = ecsSystems.GetWorld().GetPool<DangerousComponent>();

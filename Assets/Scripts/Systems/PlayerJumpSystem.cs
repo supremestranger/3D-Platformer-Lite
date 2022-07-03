@@ -8,7 +8,7 @@ namespace Platformer
 {
     public class PlayerJumpSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var playerGroundedFilter = ecsSystems.GetWorld().Filter<PlayerComponent>().Inc<PlayerInputComponent>().Inc<GroundedComponent>().End();
             var tryJumpFilter = ecsSystems.GetWorld().Filter<TryJump>().End();

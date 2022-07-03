@@ -7,7 +7,7 @@ namespace Platformer
 {
     public class PlayerMoveSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var filter = ecsSystems.GetWorld().Filter<PlayerComponent>().Inc<PlayerInputComponent>().End();
             var playerPool = ecsSystems.GetWorld().GetPool<PlayerComponent>();

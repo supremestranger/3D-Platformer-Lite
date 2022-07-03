@@ -5,14 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4b487e5a35cd27b055b4a5d9ac874a64ad90c186"
+      "hash": "3b303bb4d491986d69b37de9e1b8bc1bd1633264"
     },
     "com.leopotam.ecslite.extendedsystems": {
-      "version": "https://github.com/Leopotam/ecslite-extendedsystems.git",
+      "version": "https://github.com/Leopotam/ecslite-extendedsystems.git#develop",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "645d4f27b12020630d4f1e252cb27deec04d2659"
+      "hash": "49659332fca4a2b87701a5df106000cfc0572ef5"
     },
     "com.leopotam.globals": {
       "version": "https://github.com/Leopotam/globals.git",

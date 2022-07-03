@@ -9,7 +9,7 @@ namespace Platformer
 {
     public class PlayerInputSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var filter = ecsSystems.GetWorld().Filter<PlayerInputComponent>().End();
             var playerInputPool = ecsSystems.GetWorld().GetPool<PlayerInputComponent>();

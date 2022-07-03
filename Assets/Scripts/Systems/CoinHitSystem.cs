@@ -7,7 +7,7 @@ namespace Platformer
 {
     public class CoinHitSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var gameData = ecsSystems.GetShared<GameData>();
             var hitFilter = ecsSystems.GetWorld().Filter<HitComponent>().End();

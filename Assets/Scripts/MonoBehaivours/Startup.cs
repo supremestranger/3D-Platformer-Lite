@@ -11,9 +11,9 @@ namespace Platformer
     public class Startup : MonoBehaviour
     {
         private EcsWorld ecsWorld;
-        private EcsSystems initSystems;
-        private EcsSystems updateSystems;
-        private EcsSystems fixedUpdateSystems;
+        private IEcsSystems initSystems;
+        private IEcsSystems updateSystems;
+        private IEcsSystems fixedUpdateSystems;
         [SerializeField] private ConfigurationSO configuration;
         [SerializeField] private Text coinCounter;
         [SerializeField] private GameObject gameOverPanel;

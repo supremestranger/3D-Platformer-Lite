@@ -7,7 +7,7 @@ namespace Platformer
 {
     public class DangerousInitSystem : IEcsInitSystem
     {
-        public void Init(EcsSystems ecsSystems)
+        public void Init(IEcsSystems ecsSystems)
         {
             var ecsWorld = ecsSystems.GetWorld();
             var dangerousPool = ecsWorld.GetPool<DangerousComponent>();

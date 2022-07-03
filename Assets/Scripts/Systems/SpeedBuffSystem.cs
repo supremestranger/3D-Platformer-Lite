@@ -8,7 +8,7 @@ namespace Platformer
 {
     public class SpeedBuffSystem : IEcsRunSystem
     {
-        public void Run(EcsSystems ecsSystems)
+        public void Run(IEcsSystems ecsSystems)
         {
             var filter = ecsSystems.GetWorld().Filter<SpeedBuffComponent>().Inc<PlayerComponent>().End();
             var speedBuffPool = ecsSystems.GetWorld().GetPool<SpeedBuffComponent>();
